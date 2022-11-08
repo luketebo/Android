@@ -1,4 +1,4 @@
-package com.example.project_04;
+package top.luketebo.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,24 +7,27 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mButton;
-
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // 入口
         setContentView(R.layout.activity_main);
-        mButton = (Button) findViewById(R.id.button_1);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        TextView tv = findViewById(R.id.tv_1);
+        tv.setText("Android Studio");
+
+        Button btn = findViewById(R.id.bu_1);
+        btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 跳转到TextView演示界面
-                Intent intent = new Intent(MainActivity.this, TextActivity.class);
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MainActivity2.class);
                 startActivity(intent);
             }
         });
+
     }
 }

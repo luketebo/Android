@@ -43,9 +43,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:drawableRight="@drawable/orientation_center"
-        android:drawablePadding="10dp"
-        android:drawableBottom=""
         android:text="@string/search"
         android:textColor="@color/black"
         android:textSize="24sp" />
