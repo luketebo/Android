@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(MainActivity.this, MainActivity2.class);
+                intent.setClass(MainActivity.this, CalaculatorActivity.class);
                 startActivity(intent);
             }
         });

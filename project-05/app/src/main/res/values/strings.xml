@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">project-05</string>
+    <string name="enable">enable</string>
+    <string name="disable">disable</string>
+    <string name="test">Test</string>
+    <string name="output">测试按钮输出文本</string>
 </resources>
