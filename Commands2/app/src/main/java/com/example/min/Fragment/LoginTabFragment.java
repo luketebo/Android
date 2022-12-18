@@ -29,11 +29,11 @@ public class LoginTabFragment extends Fragment {
     Button login;
     float v = 0;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_login_tab,container,false);
+        ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_login_tab,container,false);//将 XML 文件实例化为 View
 
         super.onCreate(savedInstanceState);
-        this.context = getActivity();
-        dbHelper = new UserDatabaseHelp(context);
+        this.context = getActivity();//返回和此fragment绑定的Activity
+        dbHelper = new UserDatabaseHelp(context);//通过创建子类继承SQLiteOpenHelper类，对数据库进行操作
         change = root.findViewById(R.id.change);
         password = root.findViewById(R.id.pass);
         username = root.findViewById(R.id.username);
@@ -57,11 +57,16 @@ public class LoginTabFragment extends Fragment {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //获取编辑框里面的字符串
                 String name = username.getText().toString().trim();
                 String pass = password.getText().toString().trim();
+                //判断编辑框里的字符串是否为空，若为空则Toast"用户名或密码不能为空"
                 if(!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(pass)){
+                    //声明一个User类的数组通过dbHelper.getAll()放入数据库里的所有数据
                     ArrayList<User> data = dbHelper.getAll();
+                    //声明userdata用于判断是否有匹配的条件
                     boolean userdata = false;
+                    //遍历data数组，比较是否有名字和密码都匹配的数据
                     for(int i=0;i<data.size();i++){
                         User user = data.get(i);
                         if(name.equals(user.getName())&&pass.equals(user.getPassword())){
@@ -79,7 +84,6 @@ public class LoginTabFragment extends Fragment {
                 }else Toast.makeText(context,"用户名或密码不能为空",Toast.LENGTH_SHORT).show();
             }
         });
-
         return root;
     }
 }

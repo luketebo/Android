@@ -22,11 +22,11 @@ public class SignupTabFragment  extends Fragment {
     Button signup;
     float v = 0;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        super.onCreate(savedInstanceState);
-        this.context = getActivity();
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_signup_tab,container,false);
+        super.onCreate(savedInstanceState);
+        this.context = getActivity();//返回和此fragment绑定的Activity
 
-        dbHelper = new UserDatabaseHelp(context);
+        dbHelper = new UserDatabaseHelp(context);//通过创建子类继承SQLiteOpenHelper类，对数据库进行操作
         username = root.findViewById(R.id.username);
         password = root.findViewById(R.id.Pass);
         email = root.findViewById(R.id.email);
@@ -54,10 +54,12 @@ public class SignupTabFragment  extends Fragment {
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //获取编辑框里面的字符串
                 String emil = email.getText().toString().trim();
                 String name = username.getText().toString().trim();
                 String pass = password.getText().toString().trim();
                 String confir = confirm.getText().toString().trim();
+                //判断编辑框里的字符串是否为空
                 if(!TextUtils.isEmpty(emil)&&!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(pass)&&!TextUtils.isEmpty(confir)){
                     if(!confir.equals(pass)){
                         Toast.makeText(context,"两次密码不一样，请重新输入",Toast.LENGTH_SHORT).show();
@@ -68,8 +70,6 @@ public class SignupTabFragment  extends Fragment {
                 }else Toast.makeText(context,"信息不完备，注册失败",Toast.LENGTH_SHORT).show();
             }
         });
-
         return root;
-
     }
 }

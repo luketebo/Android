@@ -7,14 +7,16 @@ public class Commands {
     private String grammar;     //语法
     private String param;     //参数
     private String example;     //示例
+    private  int collect;    //是否收藏
 
-    public Commands(String name, String details, String grammar, String param, String example) {
+    public Commands(String name, String details, String grammar, String param, String example,int collect) {
         super();
         this.name = name;
         this.details = details;
         this.grammar = grammar;
         this.param = param;
         this.example = example;
+        this.collect = collect;
     }
 
     public int getId() {
@@ -65,6 +67,14 @@ public class Commands {
         this.example = example;
     }
 
+    public int getCollect() {
+        return collect;
+    }
+
+    public void setCollect(int collect) {
+        this.collect = collect;
+    }
+
     @Override
     public String toString() {
         return "Commands{" +
@@ -74,6 +84,7 @@ public class Commands {
                 ", grammar='" + grammar + '\'' +
                 ", param='" + param + '\'' +
                 ", example='" + example + '\'' +
+                ", collect='" + collect + '\'' +
                 '}';
     }
 }

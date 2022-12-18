@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlusActivity">
+
+    <ImageView
+        android:id="@+id/back_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015" />
+
+    <EditText
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent=".85"
+        app:layout_constraintVertical_bias=".1"
+        app:layout_constraintHorizontal_bias=".5"
+        android:hint="标题"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@drawable/edit_text_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent=".85"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintVertical_bias=".6"
+        app:layout_constraintHorizontal_bias=".5"
+        android:hint="请输入你的笔记"
+        android:background="@drawable/edit_text_bg"
+        android:gravity="top"
+        android:padding="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/insert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确认添加"
+        android:background="@drawable/button_bg"
+        app:layout_constraintVertical_bias=".97"
+        app:layout_constraintHorizontal_bias=".9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

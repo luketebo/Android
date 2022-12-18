@@ -2,6 +2,7 @@ package com.example.min;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,15 +20,16 @@ import com.example.min.Fragment.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
-    View home,find,bookmark,github,theme,details;
+    View home,find,bookmark;
     NavigationView navigationView;
     DrawerLayout drawerLayout;//抽屉
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getSupportFragmentManager()
+        getSupportFragmentManager()//设置主页的fragment位置放置哪个fragment
                 .beginTransaction()
                 .add(R.id.home_view,new HomeFragment())   // 此处的R.id.home_view是要盛放fragment的父容器
                 .commit();
@@ -36,9 +38,6 @@ public class HomeActivity extends AppCompatActivity {
         home = findViewById(R.id.homeFragment);
         find = findViewById(R.id.findFragment);
         bookmark = findViewById(R.id.bookmarkFragment);
-        github = findViewById(R.id.githubFragment);
-        theme = findViewById(R.id.themeFragment);
-        details = findViewById(R.id.detailsFragment);
         navigationView = findViewById(R.id.nav_view_left);
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -78,9 +77,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //给navigation对象添加项目选择监视器，根据点击的项目不同，所显示的消息不同
+        //给navigation对象添加项目选择监视器，根据点击的项目不同，所执行的动作不同
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
+            @Override//重写方法
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.githubFragment:
@@ -89,7 +88,9 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(intent);
                         drawerLayout.closeDrawers();//响应后侧边栏关闭
                         break;
-                    case R.id.themeFragment:
+                    case R.id.collectFragment:
+                        Intent intent3 = new Intent(HomeActivity.this,CollectActivity.class);
+                        startActivity(intent3);
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.detailsFragment:
@@ -103,7 +104,6 @@ public class HomeActivity extends AppCompatActivity {
                         finish();
                         drawerLayout.closeDrawers();
                 }
-
                 return false;
             }
         });

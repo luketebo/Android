@@ -23,7 +23,7 @@ public class IntroductoryActivity extends AppCompatActivity {
         bg = findViewById(R.id.bg);
         title = findViewById(R.id.title);
 
-
+        //给组件添加动画，动画持续时间为1ms，延迟时间为4s和最终的位置
         bg.animate().translationY(-2600).setDuration(1000).setStartDelay(4000);
         lottieAnimationView.animate().translationY(1800).setDuration(1000).setStartDelay(4000);
         title.animate().translationY(1800).setDuration(1000).setStartDelay(4000);
@@ -31,9 +31,6 @@ public class IntroductoryActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-//                Intent intent=new Intent(IntroductoryActivity.this,MainActivity.class);
-//                startActivity(intent);
-//                finish();
                 Intent intent = new Intent( );
                 intent.setClass(IntroductoryActivity.this, Login_signupActivity.class);
                 startActivity(intent);

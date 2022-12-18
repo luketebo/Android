@@ -7,9 +7,9 @@
             android:icon="@drawable/ic_github"
             android:title="@string/draw_github" />
         <item
-            android:id="@+id/themeFragment"
+            android:id="@+id/collectFragment"
             android:icon="@drawable/ic_theme"
-            android:title="@string/draw_theme" />
+            android:title="@string/draw_collect" />
         <item
             android:id="@+id/detailsFragment"
             android:icon="@drawable/ic_details"

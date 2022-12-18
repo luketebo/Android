@@ -38,19 +38,21 @@ public class FindFragment extends Fragment {
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_find,container,false);
         super.onCreate(savedInstanceState);
 
-        this.context = getActivity();
+        this.context = getActivity();//返回和此fragment绑定的Activity
         lv = root.findViewById(R.id.lv);
         et = root.findViewById(R.id.et);
         find = root.findViewById(R.id.find);
-        dbHelper = new ComDatabaseHelp(context);
+        dbHelper = new ComDatabaseHelp(context);//通过创建子类继承SQLiteOpenHelper类，对数据库进行操作
 
         find.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //获取编辑框里的字符串
                 String str = et.getText().toString().trim();
                 ArrayList<Commands> data = new ArrayList<>();
                 data = dbHelper.getAll();
                 comlist = new ArrayList<>();
+                //datause用于判断是否有符合条件的情况
                 boolean datause = false;
                 if(!TextUtils.isEmpty(str)){
                     for(int i=0;i<data.size();i++){

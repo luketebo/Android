@@ -31,22 +31,23 @@ public class HomeFragment extends Fragment {
         super.onCreate(savedInstanceState);
         //获取控件
         listView = root.findViewById(R.id.list_view);
-        this.context = getActivity();
-        dbHelper = new ComDatabaseHelp(context);
-        //准备数据
+        this.context = getActivity();//返回和此fragment绑定的Activity
+        dbHelper = new ComDatabaseHelp(context);//通过创建子类继承SQLiteOpenHelper类，对数据库进行操作
+
+        //准备一个集合用于存放数据库中的数据映射到listview上
         List<Commands> comlist = new ArrayList<>();
         ArrayList<Commands> data = dbHelper.getAll();
         for(int i=0;i<data.size();i++){
             Commands command = data.get(i);
             comlist.add(command);
         }
-        CommandAdapter adapter = new CommandAdapter(context,R.layout.commands_item,comlist);
+        CommandAdapter adapter = new CommandAdapter(context,R.layout.commands_item,comlist);//上下文，listview每个item的布局，数据
         listView.setAdapter(adapter);
         //listview 的点击事件
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
+            @Override//重写
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Commands commands= comlist.get(position) ;
+                Commands commands= comlist.get(position) ;//获取点击的那个item
                 Intent intent = new Intent(context, ExplainActivity.class);
                 intent.putExtra("name",commands.getName());
                 startActivity(intent);
