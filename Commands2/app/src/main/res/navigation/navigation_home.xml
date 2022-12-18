@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.min.Fragment.HomeFragment"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/findFragment"
+        android:name="com.example.min.Fragment.FindFragment"
+        tools:layout="@layout/fragment_find" />
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.example.min.Fragment.BookmarkFragment"
+        tools:layout="@layout/fragment_bookmark" />
+</navigation>

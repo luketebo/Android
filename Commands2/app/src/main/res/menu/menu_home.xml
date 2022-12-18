@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/homeFragment"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home_home" />
+        <item
+            android:id="@+id/findFragment"
+            android:icon="@drawable/ic_find"
+            android:title="@string/home_find" />
+        <item
+            android:id="@+id/bookmarkFragment"
+            android:icon="@drawable/ic_bookmark"
+            android:title="@string/home_bookmark" />
+
+    </group>
+</menu>
